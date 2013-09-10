@@ -1,0 +1,23 @@
+{
+  "name": "nw-demo",
+  "main": "index.html",
+  "window": {
+    "title": "Funky Times",
+    "icon": "link.png",
+    "toolbar": true,
+    "resizable":true,
+    "frame": true,
+    "width": 800,
+    "height": 500,
+    "position": "center",
+    "min_width": 400,
+    "min_height": 200
+    //"max_width": 800,
+   //"max_height": 600
+  },
+  "maintainers":[ {
+	"name": "Bill Bloggs",
+	"email": "billblogs@bblogmedia.com",
+	"web": "http://www.bblogmedia.com"
+	}]
+}

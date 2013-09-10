@@ -1,0 +1,19 @@
+body
+{
+	padding-top: 70px;
+	margin: 2em 0;
+	background-color: rgb(194, 255, 116);
+}
+
+#tabs-content
+{
+	background-color: white;
+	border-left: 1px solid #ddd;
+	border-right: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+}
+
+.tab-pane
+{
+	padding: 2em;
+}
