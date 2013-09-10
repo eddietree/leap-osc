@@ -2,7 +2,7 @@
   "name": "nw-demo",
   "main": "index.html",
   "window": {
-    "title": "Funky Times",
+    "title": "leap-osc",
     "icon": "link.png",
     "toolbar": true,
     "resizable":true,
@@ -16,8 +16,8 @@
    //"max_height": 600
   },
   "maintainers":[ {
-	"name": "Bill Bloggs",
-	"email": "billblogs@bblogmedia.com",
-	"web": "http://www.bblogmedia.com"
+	"name": "Eddie Lee",
+	"email": "eddie@funktroniclabs.com",
+	"web": "http://www.funktroniclabs.com"
 	}]
 }
