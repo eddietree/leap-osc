@@ -7,11 +7,11 @@
     "toolbar": true,
     "resizable":true,
     "frame": true,
-    "width": 800,
-    "height": 500,
+    "width": 1000,
+    "height": 600,
     "position": "center",
-    "min_width": 400,
-    "min_height": 200
+    "min_width": 800,
+    "min_height": 400
     //"max_width": 800,
    //"max_height": 600
   },

@@ -51,7 +51,7 @@ function LeapHandler()
 	this.connect = function () 
 	{
 		this.controller.connect();
-		Log("\nWaiting for Leap device to connect...");
+		Log( g_leap.console_prefix + "Waiting for Leap device to connect...");
 
 		this.controller.on('frame', function(frame) 
 		{
