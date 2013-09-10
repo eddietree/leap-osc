@@ -1,7 +1,7 @@
 body
 {
 	padding-top: 70px;
-	margin: 2em 0;
+	margin: 3em 0;
 	background-color: rgb(194, 255, 116);
 	/*background-image:url('../img/bg.png');*/
 }
@@ -9,4 +9,22 @@ body
 ul#console-list li
 {
 	border-bottom: 1px dotted #ccc;
+}
+
+.big-number
+{
+	font-size: 13em;
+	margin-bottom: 0em;
+}
+.small-text
+{
+	font-size: 1.5em;
+	margin-top: -2.5em;
+	padding-bottom: 3em;
+}
+
+#console-content
+{
+	max-height: 290px;
+	overflow-y: auto;
 }

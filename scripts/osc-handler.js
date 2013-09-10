@@ -33,7 +33,7 @@ function Osc()
 		    return a + ' ' + b;
 		});
 
-		var console_msg = 'Sent: ' + a_address + ' ' + total;
+		var console_msg = '[osc] sent ' + a_address + ' ' + total;
 		Log(console_msg);
 	}
 }
