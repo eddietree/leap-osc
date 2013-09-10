@@ -1,88 +1,79 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="bootstrap/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="css/stylez.css">
+	<script src="scripts/lib/jquery-1.10.2.min.js"></script>
+	<script src="bootstrap/js/button.js"></script>
+	<script src="bootstrap/js/carousel.js"></script>
+	<script src="bootstrap/js/bootstrap.min.js"></script>
 
+	<script src="scripts/lib/leap.js"></script>
 
-		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-		<link rel="stylesheet" href="bootstrap/css/bootstrap-theme.min.css">
-		<link rel="stylesheet" href="css/stylez.css">
-		<script src="scripts/lib/jquery-1.10.2.min.js"></script>
-		<script src="bootstrap/js/button.js"></script>
-		<script src="bootstrap/js/carousel.js"></script>
-		<script src="bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
 
-  </head>
-  <body>
-	
-    <div class="container">
+	<div class="container">
 
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-  <!-- Brand and toggle get grouped for better mobile display -->
-  <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-tree-conifer"></span> leap-osc</a>
-  </div>
-
-  <!-- Collect the nav links, forms, and other content for toggling -->
-  <div class="collapse navbar-collapse navbar-ex1-collapse">
-    
-    <ul class="nav navbar-nav navbar-right">
-
-    <form class="navbar-form navbar-left  form-inline" role="form">
-  <div class="form-group">
-    <label class="sr-only" for="input-ip">IP Address</label>
-    <input type="email" class="form-control" id="input-ip" placeholder="IP Address">
-  </div>
-  <div class="form-group">
-    <label class="sr-only" for="input-port">Port</label>
-    <input type="password" class="form-control" id="input-port" placeholder="Port">
-  </div>
-  <button type="submit" class="btn btn-warning">Connect</button>
-</form>
-
-
-    </ul>
-  </div><!-- /.navbar-collapse -->
-</nav>
-
-
-
-    	<div class="row">
-    		<div class="col-md-4"></div>
-			<div class="col-md-4" id="login-form">
-				<form class="form-signin">
-				<h2 class="form-signin-heading">Please sign in</h2>
-				<input type="text" class="form-control input-lg" id="irc-username" placeholder="username" value="TESTER" autofocus>
-				<input type="text" class="form-control input-lg" id="irc-server" placeholder="server" value="irc.esper.net">
-				<label class="checkbox">
-				  <input type="checkbox" value="remember-me"> Remember me
-				</label>
-				<button id="login" class="btn btn-lg btn-warning btn-block" data-loading-text="Signing In..."  type="submit">Sign in</button>
-				</form>
+		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">
+					<span class="glyphicon glyphicon-tree-conifer"></span>
+					leap-osc
+				</a>
 			</div>
-			<div class="col-md-4"></div>
-		</div>
 
-		<div id="main-page">
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse">
 
-			<div id="main-board">
-				<ul id="tabs" class="nav nav-tabs"></ul>
-				<div id="tabs-content" class="tab-content"></div>
+				<ul class="nav navbar-nav navbar-right">
+
+					<form class="navbar-form navbar-left  form-inline" role="form">
+						<div class="form-group">
+							<label class="sr-only" for="input-ip">IP Address</label>
+							<input type="url" class="form-control" id="input-ip" placeholder="IP Address"></div>
+						<div class="form-group">
+							<label class="sr-only" for="input-port">Port</label>
+							<input type="number" class="form-control" id="input-port" placeholder="Port"></div>
+						<button type="submit" class="btn btn-warning">Connect</button>
+					</form>
+
+				</ul>
+			</div>
+		</nav>
+
+		<div class="col-md-8">
+			<div class="panel panel-default">
+				<div class="panel-heading">Panel heading without title</div>
+				<div class="panel-body">Panel content</div>
 			</div>
 		</div>
+		<div class="col-md-4">
+			<div class="panel panel-default">
+				<div class="panel-heading">Console</div>
+				<div class="panel-body">
+					<ul id="console-list" class="list-unstyled">
+						<li>test</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- /container -->
 
-    </div> <!-- /container -->
+</body>
 
-  </body>
-
-  <script src="scripts/tabs.js"></script>
-  <script src="scripts/funk-irc.js"></script>
-  <script src="scripts/osc-handler.js"></script>
-  <script src="scripts/main.js"></script>
+	<script src="scripts/console.js"></script>
+	<script src="scripts/funk-irc.js"></script>
+	<script src="scripts/osc-handler.js"></script>
+	<script src="scripts/main.js"></script>
 
 </html>

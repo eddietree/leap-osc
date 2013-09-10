@@ -3,17 +3,10 @@ body
 	padding-top: 70px;
 	margin: 2em 0;
 	background-color: rgb(194, 255, 116);
+	/*background-image:url('../img/bg.png');*/
 }
 
-#tabs-content
+ul#console-list li
 {
-	background-color: white;
-	border-left: 1px solid #ddd;
-	border-right: 1px solid #ddd;
-	border-bottom: 1px solid #ddd;
-}
-
-.tab-pane
-{
-	padding: 2em;
+	border-bottom: 1px dotted #ccc;
 }
