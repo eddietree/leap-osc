@@ -6,7 +6,8 @@
 	<link rel="stylesheet" href="css/stylez.css">
 	<script src="scripts/lib/jquery-1.10.2.min.js"></script>
 	<script src="bootstrap/js/button.js"></script>
-	<script src="bootstrap/js/carousel.js"></script>
+	<script src="bootstrap/js/tooltip.js"></script>
+	<script src="bootstrap/js/alert.js"></script>
 	<script src="bootstrap/js/bootstrap.min.js"></script>
 
 	<script src="scripts/lib/leap.js"></script>
@@ -25,10 +26,10 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<span class="navbar-brand">
+				<a class="navbar-brand" id="title-brand" data-toggle="tooltip" title="by Funktronic Labs">
 					<span class="glyphicon glyphicon-tree-conifer"></span>
 					leap-osc
-				</span>
+				</a>
 			</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
@@ -42,47 +43,52 @@
 							<input type="url" class="form-control" id="input-ip" placeholder="IP Address"></div>
 						<div class="form-group">
 							<label class="sr-only" for="input-port">Port</label>
-							<input type="number" class="form-control" id="input-port" placeholder="Port"></div>
-						<button type="submit" class="btn btn-warning">Connect</button>
+							<input type="text" class="form-control" id="input-port" placeholder="Port"></div>
+						<button type="submit" id="input-connect-btn" class="btn btn-warning">Connect</button>
 					</form>
 
 				</ul>
 			</div>
 		</nav>
 
+		<div class="col-md-12" id="warning-zone"></div>
+
 		<div class="col-md-8">
 			<div class="panel panel-primary">
-				<!--<div class="panel-heading">Leap</div>-->
-				<div class="panel-body text-center">
-					<div class="col-md-6">
-						<div class='big-number' id="num-hands">2</div>
-						<div class='small-text'>hands</div>
-					</div>
-					<div class="col-md-6">
-						<div class='big-number' id="num-fingers">2</div>
-						<div class='small-text'>fingers</div>
-					</div>	
+				<!--<div class="panel-heading">Leap</div>
+			-->
+			<div class="panel-body text-center">
+				<div class="col-md-6">
+					<div class='big-number' id="num-hands">2</div>
+					<div class='small-text'>hands</div>
+				</div>
+				<div class="col-md-6">
+					<div class='big-number' id="num-fingers">2</div>
+					<div class='small-text'>fingers</div>
+				</div>
 
-				</div>
-			</div>
-		</div>
-		<div class="col-md-4">
-			<div class="panel panel-default">
-				<div class="panel-heading"><span class="glyphicon glyphicon-search"></span> Console</div>
-				<div class="panel-body" id="console-content">
-					<ul id="console-list" class="list-unstyled">
-					</ul>
-				</div>
 			</div>
 		</div>
 	</div>
-	<!-- /container -->
+	<div class="col-md-4">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<span class="glyphicon glyphicon-search"></span>
+				Console
+			</div>
+			<div class="panel-body" id="console-content">
+				<ul id="console-list" class="list-unstyled"></ul>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- /container -->
 
 </body>
 
-	<script src="scripts/console.js"></script>
-	<script src="scripts/leap-handler.js"></script>
-	<script src="scripts/osc-handler.js"></script>
-	<script src="scripts/main.js"></script>
+<script src="scripts/console.js"></script>
+<script src="scripts/leap-handler.js"></script>
+<script src="scripts/osc-handler.js"></script>
+<script src="scripts/main.js"></script>
 
 </html>

@@ -6,11 +6,18 @@ function Log( a_msg, a_important )
 	$('#console-list').append( console_li );
 
 	var max_size = 128;
-	console.log($('#console-list').size());
 	if ( $('#console-list li').size() > max_size )
 	{
 		$('#console-list li:first-child').remove();
 	}
 
 	$('#console-content').scrollTop($('#console-content')[0].scrollHeight);
+}
+
+function ShowErrorMsg( a_title, a_msg )
+{
+	var inner = '<div class="alert alert-danger fade in"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><span class="glyphicon glyphicon-warning-sign"></span> <strong>' + a_title + '</strong> ' + a_msg + '</div>';
+	var dom_item = $(inner);
+
+	$('#warning-zone').append( dom_item );
 }
