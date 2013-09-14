@@ -7,6 +7,7 @@ function LeapHandler()
 	this.console_prefix = "[Leap] ";
 	this.scale = 0.05;
 	this.connected = false;
+	this.ready_to_receive = false;
 
 	$('#num-hands').html( 0 );
 	$('#num-fingers').html( 0 );
@@ -59,15 +60,18 @@ function LeapHandler()
 
 		this.controller.on('frame', function(frame) 
 		{
-			if ( this.connected )
+			console.log(g_leap.connected==true && g_leap.ready_to_receive);
+
+			if ( g_leap.connected==true && g_leap.ready_to_receive==true )
 			{
+				g_leap.ready_to_receive = false;
 				g_leap.outputFrame(frame);
 			}
 		});
 
 		this.controller.on('ready', function()
 		{
-			this.connected = true;
+			g_leap.connected = true;
 		    Log( g_leap.console_prefix + "ready");
 		});
 
@@ -78,7 +82,7 @@ function LeapHandler()
 
 		this.controller.on('disconnect', function()
 		{
-			this.connected = false;
+			g_leap.connected = false;
 		    Log( g_leap.console_prefix + "disconnect");
 		});
 
@@ -94,13 +98,13 @@ function LeapHandler()
 
 		this.controller.on('deviceConnected', function()
 		{
-			this.connected = true;
+			g_leap.connected = true;
 		    Log( g_leap.console_prefix + "deviceConnected");
 		});
 
 		this.controller.on('deviceDisconnected', function()
 		{
-			this.connected = false;
+			g_leap.connected = false;
 		    Log( g_leap.console_prefix + "deviceDisconnected");
 		});
 	}
@@ -108,3 +112,12 @@ function LeapHandler()
 
 g_leap = new LeapHandler();
 g_leap.connect();
+
+
+function OscReady()
+{
+	//console.log(g_leap.ready_to_receive);
+	g_leap.ready_to_receive = true;
+}
+
+window.setInterval(OscReady,100);
