@@ -1,7 +1,7 @@
 body
 {
 	padding-top: 70px;
-	margin: 3em 0;
+	margin: 3em 0 0 0;
 	background-color: rgb(179, 255, 82);
 	/*background-image:url('../img/bg.png');*/
 }
@@ -13,18 +13,31 @@ ul#console-list li
 
 .big-number
 {
+	margin-top: -0.3em;	
 	font-size: 13em;
 	margin-bottom: 0em;
+
 }
 .small-text
 {
 	font-size: 1.5em;
 	margin-top: -2.5em;
-	padding-bottom: 3em;
 }
 
 #console-content
 {
 	max-height: 290px;
 	overflow-y: auto;
+}
+
+#leap-area
+{
+	padding: 5em 0;
+}
+
+#leap-connection-status
+{
+	margin-top:1em;
+	color: red;
+	font-size: 2.5em;
 }

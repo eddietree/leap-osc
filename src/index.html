@@ -8,6 +8,7 @@
 	<script src="bootstrap/js/button.js"></script>
 	<script src="bootstrap/js/tooltip.js"></script>
 	<script src="bootstrap/js/alert.js"></script>
+	<script src="bootstrap/js/popover.js"></script>
 	<script src="bootstrap/js/bootstrap.min.js"></script>
 
 	<script src="scripts/lib/leap.js"></script>
@@ -26,37 +27,70 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
+
 				<a class="navbar-brand" id="title-brand" data-toggle="tooltip" title="by Funktronic Labs">
 					<span class="glyphicon glyphicon-tree-conifer"></span>
 					leap-osc
 				</a>
 			</div>
 
-			<!-- Collect the nav links, forms, and other content for toggling -->
-			<div class="collapse navbar-collapse">
+			<div class="dropdown navbar-left ">
 
-				<ul class="nav navbar-nav navbar-right">
+				<button type="button" data-toggle="dropdown" class="btn btn-info navbar-btn" id="btn-settings" data-toggle="tooltip" title="Settings" >
+					<span class="glyphicon glyphicon-wrench"></span>
+				</button>
 
-					<form class="navbar-form navbar-left  form-inline" role="form">
-						<div class="form-group">
-							<label class="sr-only" for="input-ip">IP Address</label>
-							<input type="url" class="form-control" id="input-ip" placeholder="IP Address"></div>
-						<div class="form-group">
-							<label class="sr-only" for="input-port">Port</label>
-							<input type="text" class="form-control" id="input-port" placeholder="Port"></div>
-						<button type="submit" id="input-connect-btn" class="btn btn-warning">Connect</button>
-					</form>
+				<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+					<li role="presentation">
+						<div class="input-group">
+							<input type="text" id="input-delay" class="form-control">
+							<span class="input-group-btn">
+								<button id="btn-delay" class="btn btn-info" data-toggle="tooltip" title="Set Delay (ms) that data transfers" type="button"><span class="glyphicon glyphicon-time"></span></button>
+							</span>
+						</div>
+						<!-- /input-group -->
 
-				</ul>
-			</div>
-		</nav>
+					</li>
 
-		<div class="col-md-12" id="warning-zone"></div>
+					<li role="presentation">
+						<div class="input-group">
+							<input type="text" id="input-scale" class="form-control">
+							<span class="input-group-btn">
+								<button id="btn-scale" class="btn btn-info" data-toggle="tooltip" title="Set Scale of Leap positions" type="button"><span class="glyphicon glyphicon-resize-full"></span></button>
+							</span>
+						</div>
+						<!-- /input-group -->
 
-		<div class="col-md-8">
-			<div class="panel panel-primary">
-				<!--<div class="panel-heading">Leap</div>
-			-->
+					</li>
+			</ul>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse  navbar-right">
+
+			<ul class="nav navbar-nav">
+
+				<form class="navbar-form navbar-left  form-inline" role="form">
+					<span id="icon-connect-status" class="glyphicon glyphicon-stop" style='margin-right: 0.5em; color:red;'  data-toggle="tooltip" title="UDP Connection Status"></span>
+					<div class="form-group">
+						<label class="sr-only" for="input-ip">IP Address</label>
+						<input type="url" class="form-control" id="input-ip" placeholder="IP Address"></div>
+					<div class="form-group">
+						<label class="sr-only" for="input-port">Port</label>
+						<input type="text" class="form-control" id="input-port" placeholder="Port"></div>
+					<button type="submit" id="input-connect-btn" class="btn btn-warning">Connect</button>
+				</form>
+
+			</ul>
+		</div>
+	</nav>
+
+	<div class="col-md-12" id="warning-zone"></div>
+
+	<div class="col-md-8">
+		<div class="panel panel-primary"  id='leap-area'>
+			<!--<div class="panel-heading">Leap</div>
+		-->
 			<div class="panel-body text-center">
 				<div class="col-md-6">
 					<div class='big-number' id="num-hands">2</div>
@@ -66,21 +100,22 @@
 					<div class='big-number' id="num-fingers">2</div>
 					<div class='small-text'>fingers</div>
 				</div>
+			</div>
 
-			</div>
+			<div class="col-md-12 text-center" id="leap-connection-status"><span class="label label-danger"><span class="glyphicon glyphicon-warning-sign"></span> Leap Disconnected</span></div>
 		</div>
 	</div>
-	<div class="col-md-4">
-		<div class="panel panel-default">
-			<div class="panel-heading">
-				<span class="glyphicon glyphicon-search"></span>
-				Console
-			</div>
-			<div class="panel-body" id="console-content">
-				<ul id="console-list" class="list-unstyled"></ul>
-			</div>
+<div class="col-md-4">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<span class="glyphicon glyphicon-search"></span>
+			Console
+		</div>
+		<div class="panel-body" id="console-content">
+			<ul id="console-list" class="list-unstyled"></ul>
 		</div>
 	</div>
+</div>
 </div>
 <!-- /container -->
 

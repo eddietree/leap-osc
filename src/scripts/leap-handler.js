@@ -5,12 +5,13 @@ function LeapHandler()
 {
 	this.controller = new Leap.Controller({enableGestures: true});
 	this.console_prefix = "[Leap] ";
-	this.scale = 0.05;
+	this.scale = 1.0;
 	this.connected = false;
 	this.ready_to_receive = false;
 
 	$('#num-hands').html( 0 );
 	$('#num-fingers').html( 0 );
+	$('#input-scale').val( this.scale );
 	
 	this.outputFrame = function( a_frame )
 	{
@@ -53,6 +54,20 @@ function LeapHandler()
         }
 	}
 
+	this.setConnected = function( a_connected )
+	{
+		this.connected = a_connected;
+
+		if ( a_connected )
+		{
+			$("#leap-connection-status").hide();
+		}
+		else
+		{
+			$("#leap-connection-status").show();
+		}
+	}
+
 	this.connect = function () 
 	{
 		this.controller.connect();
@@ -71,7 +86,7 @@ function LeapHandler()
 
 		this.controller.on('ready', function()
 		{
-			g_leap.connected = true;
+			g_leap.setConnected(true);
 		    Log( g_leap.console_prefix + "ready");
 		});
 
@@ -82,7 +97,7 @@ function LeapHandler()
 
 		this.controller.on('disconnect', function()
 		{
-			g_leap.connected = false;
+			g_leap.setConnected(false);
 		    Log( g_leap.console_prefix + "disconnect");
 		});
 
@@ -98,13 +113,13 @@ function LeapHandler()
 
 		this.controller.on('deviceConnected', function()
 		{
-			g_leap.connected = true;
+			g_leap.setConnected(true);
 		    Log( g_leap.console_prefix + "deviceConnected");
 		});
 
 		this.controller.on('deviceDisconnected', function()
 		{
-			g_leap.connected = false;
+			g_leap.setConnected(false);
 		    Log( g_leap.console_prefix + "deviceDisconnected");
 		});
 	}
@@ -113,11 +128,51 @@ function LeapHandler()
 g_leap = new LeapHandler();
 g_leap.connect();
 
+// scale
+$( "#btn-scale" ).click(function() 
+{
+	var scale = $('#input-scale').val();
+
+	if ( isNaN(scale))
+	{
+		ShowErrorMsg( "Error!", "Invalid scale '" + scale + "'" );
+		scale = 1.0;
+	}
+
+	g_leap.scale = scale;
+	$('#input-scale').val(scale);
+
+	Log( "Set scale to: " + scale );
+});
+
+
+
 
 function OscReady()
 {
-	//console.log(g_leap.ready_to_receive);
 	g_leap.ready_to_receive = true;
 }
 
-window.setInterval(OscReady,100);
+var g_data_delay_ms = 50;
+var g_interval_func = window.setInterval(OscReady, g_data_delay_ms);
+$('#input-delay').val(g_data_delay_ms);
+
+// set interval
+$( "#btn-delay" ).click(function() 
+{
+	var delay = $('#input-delay').val();
+
+	if ( isNaN(delay))
+	{
+		ShowErrorMsg( "Error!", "Invalid delay '" + delay + "'" );
+		delay = g_data_delay_ms;
+	}
+
+	g_data_delay_ms = delay;
+	$('#input-delay').val(delay);
+
+	window.clearInterval(g_interval_func)
+	g_interval_func=setInterval(OscReady,  g_data_delay_ms);
+
+	Log( "Set delay to: " + delay );
+});
