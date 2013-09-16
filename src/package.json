@@ -4,7 +4,7 @@
   "window": {
     "title": "leap-osc",
     "icon": "link.png",
-    "toolbar": true,
+    "toolbar": false,
     "resizable":true,
     "frame": true,
     "width": 1000,
