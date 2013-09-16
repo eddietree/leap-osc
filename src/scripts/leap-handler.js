@@ -75,8 +75,6 @@ function LeapHandler()
 
 		this.controller.on('frame', function(frame) 
 		{
-			console.log(g_leap.connected==true && g_leap.ready_to_receive);
-
 			if ( g_leap.connected==true && g_leap.ready_to_receive==true )
 			{
 				g_leap.ready_to_receive = false;
